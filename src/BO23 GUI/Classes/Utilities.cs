@@ -344,13 +344,12 @@ namespace BO23_GUI_idea.Classes
                     kiosk.log.AppendText(logText);
                     System.Diagnostics.Debug.WriteLine(logText);
                 }
-                else
-                {
-                    logText = "เชื่อมต่อเครื่องพิมพ์ได้แล้ว";
-                    kiosk.log.AppendText(logText);
-                    System.Diagnostics.Debug.WriteLine(logText);
-                    isPrinterValid = true;
-                }
+            
+                logText = "เชื่อมต่อเครื่องพิมพ์ได้แล้ว";
+                kiosk.log.AppendText(logText);
+                System.Diagnostics.Debug.WriteLine(logText);
+                isPrinterValid = true;
+
             }
             catch (Exception ex)
             {
