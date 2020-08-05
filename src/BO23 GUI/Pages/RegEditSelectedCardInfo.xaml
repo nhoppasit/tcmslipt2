@@ -1,0 +1,201 @@
+﻿<UserControl x:Class="BO23_GUI_idea.Pages.RegEditSelectedCardInfo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:bhm="clr-namespace:BO23_GUI_idea.Pages"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"              
+             mc:Ignorable="d" 
+              d:DesignWidth="{StaticResource Scr_W}" d:DesignHeight="{StaticResource Scr_H}" >
+
+    <!--Resource-->
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="BHMDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <!--Main display-->
+    <Viewbox>
+        <Canvas Width="{StaticResource Scr_W}" Height="{StaticResource Scr_H}" 
+                Style="{StaticResource BlueBrushStyle}">
+
+            <!--Header Icons-->
+            <bhm:HeaderIcons/>
+
+            <!--Tell user textblock-->
+            <Grid Canvas.Top="10" Width="{StaticResource Scr_W}" Height="Auto">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!--Say some thing-->
+                <TextBlock Style="{StaticResource TellUserTextStyle}" 
+                           x:Name="txtTellUser" Text="NEW"
+                           Grid.Row="0">
+                        <!--<TextBlock.Effect>
+                            <DropShadowEffect BlurRadius="10" Color="Yellow"/>
+                        </TextBlock.Effect>-->
+                </TextBlock>
+
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100*"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="100*"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="100*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="20"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!--Car Tag-->
+                        <TextBlock Style="{StaticResource TellUserTextStyle}" Grid.Column="0"
+                               Text="RFID:" HorizontalAlignment="Right"
+                               Padding="0,20,0,0"
+                               TextAlignment="Right"
+                               Foreground="White"                           
+                               FontFamily="TH Krub" FontSize="70" FontWeight="Bold">
+                            <TextBlock.Effect>
+                                <DropShadowEffect BlurRadius="10" Color="Gray"/>
+                            </TextBlock.Effect>
+                        </TextBlock>
+                        <TextBlock Style="{StaticResource TellUserTextStyle}" Grid.Column="2"
+                                   x:Name="txtRFID" Text="---"
+                                   Padding="0,25,0,0"
+                                   Width="450" Height="100" TextAlignment="Center"
+                                   Background="WhiteSmoke" Foreground="Black"                           
+                                   FontFamily="TH Krub" FontSize="70" FontWeight="Bold">
+                            <TextBlock.Effect>
+                                <DropShadowEffect BlurRadius="10" Color="Gray"/>
+                            </TextBlock.Effect>
+                        </TextBlock>
+                        
+                        <!--Car Tag-->
+                        <TextBlock Style="{StaticResource TellUserTextStyle}" 
+                                   Grid.Row="2" Grid.Column="0"
+                                   Text="ทะเบียน:" HorizontalAlignment="Right"
+                                   Padding="0,20,0,0"
+                                   TextAlignment="Right"
+                                   Foreground="White"                           
+                                   FontFamily="TH Krub" FontSize="70" FontWeight="Bold">
+                            <TextBlock.Effect>
+                                <DropShadowEffect BlurRadius="10" Color="Gray"/>
+                            </TextBlock.Effect>
+                        </TextBlock>
+                        <TextBlock Style="{StaticResource TellUserTextStyle}" 
+                                   Grid.Column="2" Grid.Row="2"
+                                   x:Name="txtCarTag" Text="ป้อนทะเบียน"
+                                   Padding="0,25,0,0"
+                                   Width="450" Height="100" TextAlignment="Center"
+                                   Background="WhiteSmoke" Foreground="Black"                           
+                                   FontFamily="TH Krub" FontSize="70" FontWeight="Bold">
+                            <TextBlock.Effect>
+                                <DropShadowEffect BlurRadius="10" Color="Gray"/>
+                            </TextBlock.Effect>
+                        </TextBlock>
+
+                        <!--Car Tag-->
+                        <TextBlock Style="{StaticResource TellUserTextStyle}" 
+                                   Grid.Row="4" Grid.Column="0"
+                                   Text="วันที่บันทึก:" HorizontalAlignment="Right"
+                                   Padding="0,20,0,0"
+                                   TextAlignment="Right"
+                                   Foreground="White"                           
+                                   FontFamily="TH Krub" FontSize="70" FontWeight="Bold">
+                            <TextBlock.Effect>
+                                <DropShadowEffect BlurRadius="10" Color="Gray"/>
+                            </TextBlock.Effect>
+                        </TextBlock>
+                        <DatePicker x:Name="dpCreatedDate" Grid.Row="4" Grid.Column="2" FontSize="64" 
+                                    HorizontalAlignment="Center" Width="450"/>
+
+                        <!--Car Tag-->
+                        <TextBlock Style="{StaticResource TellUserTextStyle}" 
+                                   Grid.Row="6" Grid.Column="0"
+                                   Text="วันที่หมดอายุ:" HorizontalAlignment="Right"
+                                   Padding="0,20,0,0"
+                                   TextAlignment="Right"
+                                   Foreground="White"                           
+                                   FontFamily="TH Krub" FontSize="70" FontWeight="Bold">
+                            <TextBlock.Effect>
+                                <DropShadowEffect BlurRadius="10" Color="Gray"/>
+                            </TextBlock.Effect>
+                        </TextBlock>
+                        <DatePicker x:Name="dpExpireDate" Grid.Row="6" Grid.Column="2" FontSize="64" 
+                                    HorizontalAlignment="Center" Width="450"/>
+
+                    </Grid>
+
+                    <!--Keys pad-->
+                    <Viewbox Grid.Column="3" Width="500">
+                        <Border BorderThickness="2" Padding="5" CornerRadius="10" BorderBrush="#FF003DBE">
+                            <bhm:CarTagKeyBoard x:Name="keyPad"/>
+                        </Border>
+                    </Viewbox>
+
+
+                </Grid>
+            </Grid>
+
+            <!--Footer-->
+            <Grid Canvas.Top="{StaticResource Footer_Top}" 
+                  Width="{StaticResource Scr_W}" Height="{StaticResource Footer_H}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="387*" />
+                    <ColumnDefinition Width="56*" />
+                    <ColumnDefinition Width="547" />
+                    <ColumnDefinition Width="110*" />
+                    <ColumnDefinition Width="233" />
+                    <ColumnDefinition Width="33*" />
+                </Grid.ColumnDefinitions>
+
+                <!--ปุ่ม แตะบัตร RFID-->
+                <Button Style="{StaticResource OrangeButtonStyle}" 
+                        Grid.Column="2"
+                        Width="Auto" Height="Auto"
+                        x:Name="btnSave" 
+                        Click="btnSave_Click">
+
+                    <TextBlock Style="{StaticResource ButtonTextStyle}" 
+                               x:Name="txtCardActive" Text="บันทึกข้อมูลบัตร"/>
+
+                </Button>
+
+                <!--ปุ่ม ยกเลิก-->
+                <Button Style="{StaticResource SmokeButtonStyle}" 
+                        Grid.Column="4"
+                        Width="auto" Height="auto"
+                        x:Name="btnCancel" 
+                        Click="btnCancel_Click">
+
+                    <TextBlock Style="{StaticResource ButtonTextStyle}" x:Name="txtCancel" Text="ยกเลิก"/>
+
+                </Button>
+
+            </Grid>
+
+        </Canvas>
+
+    </Viewbox>
+
+</UserControl>

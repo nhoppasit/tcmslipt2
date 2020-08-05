@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="BO23_GUI_idea.Pages.SplashScreen"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:bhm="clr-namespace:BO23_GUI_idea.Pages"      
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignWidth="{StaticResource Scr_W}" d:DesignHeight="{StaticResource Scr_H}">
+
+    <!--Resource-->
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="BHMDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <!--Main display-->
+    <Viewbox>
+        <Canvas Width="{StaticResource Scr_W}" Height="{StaticResource Scr_H}" 
+                Background="Black" 
+                MouseUp="Page_MouseUp">
+
+            <!--Image-->
+            <Image x:Name="imgSplash" Width="{StaticResource Scr_W}" Height="{StaticResource Scr_H}"/>
+            
+            <!--Header Icons-->
+            <bhm:HeaderIcons/>
+            <TextBlock />
+            
+        </Canvas>
+
+    </Viewbox>
+    
+</UserControl>

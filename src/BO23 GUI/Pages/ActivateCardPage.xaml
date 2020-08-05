@@ -1,0 +1,120 @@
+﻿<UserControl x:Class="BO23_GUI_idea.Pages.ActivateCardPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:bhm="clr-namespace:BO23_GUI_idea.Pages"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignWidth="{StaticResource Scr_W}" d:DesignHeight="{StaticResource Scr_H}" >
+
+    <!--Resource-->
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="BHMDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <!--Main display-->
+    <Viewbox>
+        
+        <Canvas Width="{StaticResource Scr_W}" Height="{StaticResource Scr_H}" 
+                Style="{StaticResource BlueBrushStyle}">
+
+            <!--รูปภาพตรงกลาง ปรับเลื่อนตำแหน่งเอง-->
+            <Grid
+                Canvas.Left="246" Canvas.Top="232">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100*"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="100*"/>
+                </Grid.ColumnDefinitions>
+                <Image Source="/BO23%20GUI%20idea;component/Images/Make%20activate%20card.png" 
+                   Height="404" Width="586" />
+            </Grid>
+            
+            <!--Header Icons-->
+            <bhm:HeaderIcons/>
+
+            <!--Tell user textblock-->
+            <Grid Canvas.Top="{StaticResource TellUser_Top}" Width="{StaticResource Scr_W}" Height="Auto">
+                <!--กรุณาแตะบัตร...-->
+                <TextBlock Style="{StaticResource TellUserTextStyle}" 
+                           x:Name="txtTellUser" Text="กรุณาแตะบัตร...">
+                        <!--<TextBlock.Effect>
+                            <DropShadowEffect BlurRadius="10" Color="Yellow"/>
+                        </TextBlock.Effect>-->
+                </TextBlock>
+            </Grid>
+           
+            <!--Footer-->
+            <Grid Canvas.Top="{StaticResource Footer_Top}" 
+                  Width="{StaticResource Scr_W}" Height="{StaticResource Footer_H}">
+               
+                <!--เมนูสำหรับพนักงานขับรถ-->
+                <Grid x:Name="mnuForOperatorUsage" Visibility="Visible">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="387*" />
+                        <ColumnDefinition Width="56*" />
+                        <ColumnDefinition Width="547" />
+                        <ColumnDefinition Width="110*" />
+                        <ColumnDefinition Width="233" />
+                        <ColumnDefinition Width="33*" />
+                    </Grid.ColumnDefinitions>
+
+                    <!--ปุ่ม กรอกทะเบียนรถ-->
+                    <Button Style="{StaticResource OrangeButtonStyle}" 
+                        Grid.Column="2"
+                        Width="Auto" Height="Auto"
+                        x:Name="btnFillCarTag" 
+                        Click="btnCarTagInput_Click">
+
+                        <TextBlock Style="{StaticResource ButtonTextStyle}" x:Name="txtFillCarTag" Text="กรอกทะเบียนรถ" FontWeight="Bold"/>
+
+                    </Button>
+
+                    <!--ปุ่ม กรอกทะเบียนรถ-->
+                    <Button Style="{StaticResource SmokeButtonStyle}" 
+                        Grid.Column="4"
+                        Width="auto" Height="auto"
+                        x:Name="btnCancel" 
+                        Click="btnCancelToStartup_Click">
+
+                        <TextBlock Style="{StaticResource ButtonTextStyle}" x:Name="txtCancel" Text="ยกเลิก"/>
+
+                    </Button>
+
+                </Grid>
+
+                <!--เมนูสำหรับอ่านบัตรให้กับระบบข้อมูลบัตร-->
+                <Grid x:Name="mnuForCardRegistration" Visibility="Collapsed">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="387*" />
+                        <ColumnDefinition Width="56*" />
+                        <ColumnDefinition Width="547" />
+                        <ColumnDefinition Width="110*" />
+                        <ColumnDefinition Width="233" />
+                        <ColumnDefinition Width="33*" />
+                    </Grid.ColumnDefinitions>
+
+                    <!--ปุ่ม ย้อนกลับ-->
+                    <Button Style="{StaticResource SmokeButtonStyle}" 
+                        Grid.Column="4"
+                        Width="auto" Height="auto"
+                        x:Name="btnBack" 
+                        Click="btnBackToAdminMenu_Click">
+
+                        <TextBlock Style="{StaticResource ButtonTextStyle}" x:Name="txtBack" Text="ย้อนกลับ"/>
+
+                    </Button>
+
+                </Grid>
+                
+            </Grid>            
+             
+        </Canvas>
+
+    </Viewbox>
+
+</UserControl>

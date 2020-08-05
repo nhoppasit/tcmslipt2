@@ -1,0 +1,60 @@
+﻿<UserControl x:Class="BO23_GUI_idea.Pages.StartupPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:bhm="clr-namespace:BO23_GUI_idea.Pages"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignWidth="{StaticResource Scr_W}" d:DesignHeight="{StaticResource Scr_H}" >
+
+    <!--Resource-->
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="BHMDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <!--Main display-->
+    <Viewbox>
+        <Canvas x:Name="canvas" Width="{StaticResource Scr_W}" Height="{StaticResource Scr_H}" 
+                Style="{StaticResource BlueBrushStyle}">
+           
+            <!--Header Icons-->
+            <bhm:HeaderIcons x:Name="headerBar" MouseDoubleClick="headerBar_MouseDoubleClick"/>
+
+            <!--Buttons-->
+            <Button Canvas.Left="{StaticResource Scr_W/3}" Canvas.Top="{StaticResource Scr_H/3}"                    
+                    Style="{StaticResource OrangeButtonStyle}" 
+                    Width="{StaticResource btnStart_W}" Height="{StaticResource btnStart_H}"
+                    x:Name="btnStart" Click="btnStart_Click">                
+                
+                <Grid Width="{StaticResource btnStart_W}" Height="{StaticResource btnStart_H}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="80*" />
+                        <RowDefinition Height="160*" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0"
+                        x:Name="txtStart" Text="เข้าระบบ" TextWrapping="Wrap" 
+                        TextAlignment="Center" Margin="0,-30,0,0"
+                        FontSize="90">
+                        <TextBlock.Effect>
+                            <DropShadowEffect BlurRadius="10" Color="Black"/>
+                        </TextBlock.Effect>
+                    </TextBlock>
+
+                    <Image Grid.Row="1"
+                        Source="/BO23%20GUI%20idea;component/Images/Transport-Interstate-Truck-icon.png" 
+                           Width="120"/>
+                    
+                </Grid>
+
+            </Button>
+
+        </Canvas>
+
+    </Viewbox>
+
+</UserControl>

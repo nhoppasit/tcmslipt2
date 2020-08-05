@@ -1,0 +1,69 @@
+﻿<UserControl x:Class="BO23_GUI_idea.Pages.WarningPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:bhm="clr-namespace:BO23_GUI_idea.Pages"      
+             xmlns:wpfanimated="http://wpfanimatedgif.codeplex.com"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignWidth="{StaticResource Scr_W}" d:DesignHeight="{StaticResource Scr_H}">
+
+    <!--Resource-->
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="BHMDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <!--Main display-->
+    <Viewbox>
+        <Canvas Width="{StaticResource Scr_W}" Height="{StaticResource Scr_H}" 
+                Style="{StaticResource BlueBrushStyle}">
+
+            <!--รูปภาพตรงกลาง ปรับเลื่อนตำแหน่งเอง-->
+            <!--<Image Source="/BO23%20GUI%20idea;component/Images/apex_server.gif" 
+                   Canvas.Left="378" Canvas.Top="295" 
+                   Height="404" Width="586" />-->
+
+            <!--<MediaElement LoadedBehavior="Play" x:Name="myGif" MediaEnded="myGif_MediaEnded" UnloadedBehavior="Manual"  
+                          Source="file://F:\ROBO\Basket Machine\SRS\Kiosk GUI design\Image resource\graphic-open-panel5.gif" 
+                          SpeedRatio="1" IsMuted="False"
+                          Canvas.Left="378" Canvas.Top="295" 
+                          Height="404" Width="586" />-->
+
+            <!--<Image wpfanimated:ImageBehavior.AnimatedSource="F:\ROBO\Basket Machine\SRS\Kiosk GUI design\Image resource\graphic-open-panel5.gif"               
+                   wpfanimated:ImageBehavior.RepeatBehavior="1"
+                   wpfanimated:ImageBehavior.AnimateInDesignMode="False"
+                   wpfanimated:ImageBehavior.AutoStart="True"              
+                   Canvas.Left="378" Canvas.Top="295" 
+                   Height="404" Width="586" />-->            
+            
+            <!--Header Icons-->
+            <bhm:HeaderIcons/>
+
+            <!--Tell user textblock-->
+            <Grid Canvas.Top="{StaticResource TellUser_Top}" Width="{StaticResource Scr_W}" Height="Auto">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="100" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                
+                <TextBlock Grid.Row="0" Style="{StaticResource WarningTextStyle}" Text="ระบบขัดข้อง" x:Name="txtText1"/>
+                <TextBlock Grid.Row="1" Style="{StaticResource WarningTextStyle}" Text="กรุณารอสักครู่..." x:Name="txtText2"/>
+                <TextBlock Grid.Row="2" Style="{StaticResource WarningTextStyle}" Text="กรุณารอสักครู่..." x:Name="txtText3"/>
+                <TextBlock Grid.Row="3" Style="{StaticResource WarningTextStyle}" Text="กรุณารอสักครู่..." x:Name="txtText4"/>
+                <TextBlock Grid.Row="4" Style="{StaticResource WarningTextStyle}" Text="กรุณารอสักครู่..." x:Name="txtText5"/>
+
+            </Grid>            
+
+        </Canvas>
+
+    </Viewbox>
+    
+</UserControl>

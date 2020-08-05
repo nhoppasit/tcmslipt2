@@ -1,0 +1,725 @@
+﻿<UserControl x:Class="BO23_GUI_idea.Pages.CarTagKeyBoard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             Height="350" Width="450">
+
+    <UserControl.Resources>
+        
+        <LinearGradientBrush x:Key="IPhoneSteelBackground" EndPoint="0.5,1.272" StartPoint="0.5,0">
+            <GradientStop Color="#FF9097A3" Offset="0"/>
+            <GradientStop Color="#FF444D5B" Offset="1"/>
+        </LinearGradientBrush>
+
+        <DropShadowEffect x:Key="DropShadowEffect" ShadowDepth="1" Direction="-90" BlurRadius="3" />
+        <Style TargetType="Button">
+            <EventSetter Event="Click" Handler="button_Click" />
+            <Setter Property="Margin" Value="4"/>
+            <Setter Property="Button.Effect" Value="{StaticResource DropShadowEffect}"/>
+            <Setter Property="FontSize" Value="22"/>
+            <Setter Property="Background" Value="WhiteSmoke"/>
+            <Setter Property="RenderTransform">
+                <Setter.Value>
+                    <!-- Workaround for ATI video cards that don't render good with dropshadoweffect-->
+                    <RotateTransform Angle="0.00000000001"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="ToggleButton">
+            <Setter Property="ClickMode" Value="Press"/>
+            <Setter Property="Margin" Value="4"/>
+            <Setter Property="Background" Value="WhiteSmoke"/>
+            <Setter Property="Button.Effect" Value="{StaticResource DropShadowEffect}"/>
+            <Setter Property="FontSize" Value="22"/>
+            <Setter Property="RenderTransform">
+                <Setter.Value>
+                    <!-- Workaround for ATI video cards that don't render good with dropshadoweffect-->
+                    <RotateTransform Angle="0.00000000001"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="Label">
+            <Setter Property="Label.Effect" Value="{StaticResource DropShadowEffect}"/>
+            <Setter Property="FontSize" Value="22"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="RenderTransform">
+                <Setter.Value>
+                    <!-- Workaround for ATI video cards that don't render good with dropshadoweffect-->
+                    <RotateTransform Angle="0.00000000001"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+
+    <!--USER CONTROL-->
+    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{DynamicResource IPhoneSteelBackground}" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <!--Header EN-->
+            <RowDefinition Height="auto"/>
+            <!--Header TH-->
+            <RowDefinition/>
+            <!--Body-->
+        </Grid.RowDefinitions>
+
+        <!--Header EN-->
+        <!--P5 ABC DEF abc def -->
+        <!--P6 GHI JKL ghi jkl -->
+        <!--P7 MNO PQR mno pqr-->
+        <!--P8 STU VWX stu vwx-->
+        <!--P9 YZ      yz -->
+        <Grid HorizontalAlignment="Stretch" Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="auto"/> 
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="1" CommandParameter="P5" Content="A-F" Height="50" Width="80" FontSize="28" FontWeight="Bold" Background="Lime"/>
+            <Button Grid.Column="2" CommandParameter="P6" Content="G-L" Height="50" Width="80" FontSize="28" FontWeight="Bold" Background="Lime"/>
+            <Button Grid.Column="3" CommandParameter="P7" Content="M-R" Height="50" Width="80" FontSize="28" FontWeight="Bold" Background="Lime"/>
+            <Button Grid.Column="4" CommandParameter="P8" Content="S-X" Height="50" Width="80" FontSize="28" FontWeight="Bold" Background="Lime"/>
+            <Button Grid.Column="5" CommandParameter="P9" Content="YZ" Height="50" Width="80" FontSize="28" FontWeight="Bold" Background="Lime"/>
+        </Grid>
+        
+        <!--Header TH-->
+        <Grid HorizontalAlignment="Stretch" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="1" CommandParameter="P1" Content="ก-ซ" Height="50" Width="80" FontSize="28" FontWeight="Bold" Background="Lime"/>
+            <Button Grid.Column="2" CommandParameter="P2" Content="ฌ-ถ" Height="50" Width="80" FontSize="28" FontWeight="Bold" Background="Lime"/>
+            <Button Grid.Column="3" CommandParameter="P3" Content="ท-ม" Height="50" Width="80" FontSize="28" FontWeight="Bold" Background="Lime"/>
+            <Button Grid.Column="4" CommandParameter="P4" Content="ย-ฮ" Height="50" Width="80" FontSize="28" FontWeight="Bold" Background="Lime"/>
+            <Button Grid.Column="5" CommandParameter="NUM" Content="0-9" Height="50" Width="80" FontSize="28" FontWeight="Bold" Background="Lime"/>
+        </Grid>
+
+        <!--Body P1-->
+        <Grid Grid.Row="2" VerticalAlignment="Stretch" x:Name="P1Board" Background="{DynamicResource IPhoneSteelBackground}"  Visibility="Visible">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0"/>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="1" CommandParameter="ก" Content="ก" FontSize="36"/>
+                <Button Grid.Column="2" CommandParameter="ข" Content="ข" FontSize="36"/>
+                <Button Grid.Column="3" CommandParameter="ฃ" Content="ฃ" FontSize="36"/>
+                <Button Grid.Column="4" CommandParameter="BACK">
+                    <Path Stretch="Fill" Width="36" Height="24" Data="F1M555.0371,274.4893L552.7871,276.7383L549.9861,273.9373L547.1991,276.7243L545.1131,274.6393L547.9001,271.8523L545.0101,268.9603L547.2601,266.7113L550.1501,269.6023L552.8921,266.8613L554.9761,268.9463L552.2361,271.6883z M555.3751,264.0003L544.8751,264.0003C543.1251,264.1253,535.0001,270.7503,535.0001,272.2503C535.0001,273.7503,543.1251,279.3753,544.8751,279.5003L555.3751,279.5003C558.8751,279.5003,559.3751,277.7093,559.3751,275.5003L559.3751,268.0003C559.3751,265.7913,558.7501,264.0003,555.3751,264.0003" Fill="#FF333333"></Path>
+                </Button>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0"/>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="1" CommandParameter="ค" Content="ค" FontSize="36"/>
+                <Button Grid.Column="2" CommandParameter="ฅ" Content="ฅ" FontSize="36"/>
+                <Button Grid.Column="3" CommandParameter="ฆ" Content="ฆ" FontSize="36"/>
+                <Button Grid.Column="4" CommandParameter="DEL">
+                    <Image Source="/BO23%20GUI%20idea;component/Images/Trash%20Empty.ico" />
+                </Button>
+            </Grid>
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0"/>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="1" CommandParameter="ง" Content="ง" FontSize="36"/>
+                <Button Grid.Column="2" CommandParameter="จ" Content="จ" FontSize="36"/>
+                <Button Grid.Column="3" CommandParameter="ฉ" Content="ฉ" FontSize="36"/>
+            </Grid>
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0"/>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="1" CommandParameter="ช" Content="ช" FontSize="36"/>
+                <Button Grid.Column="2" CommandParameter="ซ" Content="ซ" FontSize="36"/>
+                <Button Grid.Column="3" CommandParameter="-" Content="-" FontSize="36"/>
+            </Grid>
+        </Grid>
+
+        <!--Body P2-->
+        <Grid Grid.Row="2" VerticalAlignment="Stretch" x:Name="P2Board" Background="{DynamicResource IPhoneSteelBackground}"  Visibility="Collapsed">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0"/>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="1" CommandParameter="ฌ" Content="ฌ" FontSize="36"/>
+                <Button Grid.Column="2" CommandParameter="ญ" Content="ญ" FontSize="36"/>
+                <Button Grid.Column="3" CommandParameter="ฎ" Content="ฎ" FontSize="36"/>
+                <Button Grid.Column="5" CommandParameter="BACK">
+                    <Path Stretch="Fill" Width="36" Height="24" Data="F1M555.0371,274.4893L552.7871,276.7383L549.9861,273.9373L547.1991,276.7243L545.1131,274.6393L547.9001,271.8523L545.0101,268.9603L547.2601,266.7113L550.1501,269.6023L552.8921,266.8613L554.9761,268.9463L552.2361,271.6883z M555.3751,264.0003L544.8751,264.0003C543.1251,264.1253,535.0001,270.7503,535.0001,272.2503C535.0001,273.7503,543.1251,279.3753,544.8751,279.5003L555.3751,279.5003C558.8751,279.5003,559.3751,277.7093,559.3751,275.5003L559.3751,268.0003C559.3751,265.7913,558.7501,264.0003,555.3751,264.0003" Fill="#FF333333"></Path>
+                </Button>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0"/>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="1" CommandParameter="ฏ" Content="ฏ" FontSize="36"/>
+                <Button Grid.Column="2" CommandParameter="ฐ" Content="ฐ" FontSize="36"/>
+                <Button Grid.Column="3" CommandParameter="ฑ" Content="ฑ" FontSize="36"/>
+                <Button Grid.Column="4" CommandParameter="DEL">
+                    <Image Source="/BO23%20GUI%20idea;component/Images/Trash%20Empty.ico" />
+                </Button>
+            </Grid>
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0"/>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="1" CommandParameter="ฒ" Content="ฒ" FontSize="36"/>
+                <Button Grid.Column="2" CommandParameter="ณ" Content="ณ" FontSize="36"/>
+                <Button Grid.Column="3" CommandParameter="ด" Content="ด" FontSize="36"/>
+            </Grid>
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0"/>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="1" CommandParameter="ต" Content="ต" FontSize="36"/>
+                <Button Grid.Column="2" CommandParameter="ถ" Content="ถ" FontSize="36"/>
+                <Button Grid.Column="3" CommandParameter="-" Content="-" FontSize="36"/>
+            </Grid>
+        </Grid>
+
+        <!--Body P3-->
+        <Grid Grid.Row="2" VerticalAlignment="Stretch" x:Name="P3Board" Background="{DynamicResource IPhoneSteelBackground}"  Visibility="Collapsed">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0"/>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="1" CommandParameter="ท" Content="ท" FontSize="36"/>
+                <Button Grid.Column="2" CommandParameter="ธ" Content="ธ" FontSize="36"/>
+                <Button Grid.Column="3" CommandParameter="น" Content="น" FontSize="36"/>
+                <Button Grid.Column="5" CommandParameter="BACK">
+                    <Path Stretch="Fill" Width="36" Height="24" Data="F1M555.0371,274.4893L552.7871,276.7383L549.9861,273.9373L547.1991,276.7243L545.1131,274.6393L547.9001,271.8523L545.0101,268.9603L547.2601,266.7113L550.1501,269.6023L552.8921,266.8613L554.9761,268.9463L552.2361,271.6883z M555.3751,264.0003L544.8751,264.0003C543.1251,264.1253,535.0001,270.7503,535.0001,272.2503C535.0001,273.7503,543.1251,279.3753,544.8751,279.5003L555.3751,279.5003C558.8751,279.5003,559.3751,277.7093,559.3751,275.5003L559.3751,268.0003C559.3751,265.7913,558.7501,264.0003,555.3751,264.0003" Fill="#FF333333"></Path>
+                </Button>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0"/>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="1" CommandParameter="บ" Content="บ" FontSize="36"/>
+                <Button Grid.Column="2" CommandParameter="ป" Content="ป" FontSize="36"/>
+                <Button Grid.Column="3" CommandParameter="ผ" Content="ผ" FontSize="36"/>
+                <Button Grid.Column="4" CommandParameter="DEL">
+                    <Image Source="/BO23%20GUI%20idea;component/Images/Trash%20Empty.ico" />
+                </Button>
+            </Grid>
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0"/>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="1" CommandParameter="ฝ" Content="ฝ" FontSize="36"/>
+                <Button Grid.Column="2" CommandParameter="พ" Content="พ" FontSize="36"/>
+                <Button Grid.Column="3" CommandParameter="ฟ" Content="ฟ" FontSize="36"/>
+            </Grid>
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0"/>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="1" CommandParameter="ภ" Content="ภ" FontSize="36"/>
+                <Button Grid.Column="2" CommandParameter="ม" Content="ม" FontSize="36"/>
+                <Button Grid.Column="3" CommandParameter="-" Content="-" FontSize="36"/>
+            </Grid>
+        </Grid>
+
+        <!--Body P4-->
+        <Grid Grid.Row="2" VerticalAlignment="Stretch" x:Name="P4Board" Background="{DynamicResource IPhoneSteelBackground}"  Visibility="Collapsed">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0"/>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="1" CommandParameter="ย" Content="ย" FontSize="36"/>
+                <Button Grid.Column="2" CommandParameter="ร" Content="ร" FontSize="36"/>
+                <Button Grid.Column="3" CommandParameter="ล" Content="ล" FontSize="36"/>
+                <Button Grid.Column="5" CommandParameter="BACK">
+                    <Path Stretch="Fill" Width="36" Height="24" Data="F1M555.0371,274.4893L552.7871,276.7383L549.9861,273.9373L547.1991,276.7243L545.1131,274.6393L547.9001,271.8523L545.0101,268.9603L547.2601,266.7113L550.1501,269.6023L552.8921,266.8613L554.9761,268.9463L552.2361,271.6883z M555.3751,264.0003L544.8751,264.0003C543.1251,264.1253,535.0001,270.7503,535.0001,272.2503C535.0001,273.7503,543.1251,279.3753,544.8751,279.5003L555.3751,279.5003C558.8751,279.5003,559.3751,277.7093,559.3751,275.5003L559.3751,268.0003C559.3751,265.7913,558.7501,264.0003,555.3751,264.0003" Fill="#FF333333"></Path>
+                </Button>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0"/>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="1" CommandParameter="ว" Content="ว" FontSize="36"/>
+                <Button Grid.Column="2" CommandParameter="ศ" Content="ศ" FontSize="36"/>
+                <Button Grid.Column="3" CommandParameter="ษ" Content="ษ" FontSize="36"/>
+                <Button Grid.Column="4" CommandParameter="DEL">
+                    <Image Source="/BO23%20GUI%20idea;component/Images/Trash%20Empty.ico" />
+                </Button>
+            </Grid>
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0"/>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="1" CommandParameter="ส" Content="ส" FontSize="36"/>
+                <Button Grid.Column="2" CommandParameter="ห" Content="ห" FontSize="36"/>
+                <Button Grid.Column="3" CommandParameter="ฬ" Content="ฬ" FontSize="36"/>
+            </Grid>
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0"/>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="1" CommandParameter="อ" Content="อ" FontSize="36"/>
+                <Button Grid.Column="2" CommandParameter="ฮ" Content="ฮ" FontSize="36"/>
+                <Button Grid.Column="3" CommandParameter="-" Content="-" FontSize="36"/>
+            </Grid>
+        </Grid>
+
+        <!--Body NUM-->
+        <Grid Grid.Row="2" VerticalAlignment="Stretch" x:Name="NumBoard" Background="{DynamicResource IPhoneSteelBackground}"  Visibility="Collapsed">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0"/>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="1" CommandParameter="7" Content="7" FontSize="36"/>
+                <Button Grid.Column="2" CommandParameter="8" Content="8" FontSize="36"/>
+                <Button Grid.Column="3" CommandParameter="9" Content="9" FontSize="36"/>
+                <Button Grid.Column="5" CommandParameter="BACK">
+                    <Path Stretch="Fill" Width="36" Height="24" Data="F1M555.0371,274.4893L552.7871,276.7383L549.9861,273.9373L547.1991,276.7243L545.1131,274.6393L547.9001,271.8523L545.0101,268.9603L547.2601,266.7113L550.1501,269.6023L552.8921,266.8613L554.9761,268.9463L552.2361,271.6883z M555.3751,264.0003L544.8751,264.0003C543.1251,264.1253,535.0001,270.7503,535.0001,272.2503C535.0001,273.7503,543.1251,279.3753,544.8751,279.5003L555.3751,279.5003C558.8751,279.5003,559.3751,277.7093,559.3751,275.5003L559.3751,268.0003C559.3751,265.7913,558.7501,264.0003,555.3751,264.0003" Fill="#FF333333"></Path>
+                </Button>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0"/>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="1" CommandParameter="4" Content="4" FontSize="36"/>
+                <Button Grid.Column="2" CommandParameter="5" Content="5" FontSize="36"/>
+                <Button Grid.Column="3" CommandParameter="6" Content="6" FontSize="36"/>
+                <Button Grid.Column="4" CommandParameter="DEL">
+                    <Image Source="/BO23%20GUI%20idea;component/Images/Trash%20Empty.ico" />
+                </Button>
+            </Grid>
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0"/>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="1" CommandParameter="1" Content="1" FontSize="36"/>
+                <Button Grid.Column="2" CommandParameter="2" Content="2" FontSize="36"/>
+                <Button Grid.Column="3" CommandParameter="3" Content="3" FontSize="36"/>
+            </Grid>
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0"/>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="2" CommandParameter="0" Content="0" FontSize="36"/>
+                <Button Grid.Column="3" CommandParameter="-" Content="-" FontSize="36"/>
+            </Grid>
+        </Grid>
+
+        <!--Body P5: A-F -->
+        <Grid Grid.Row="2" VerticalAlignment="Stretch" x:Name="P5Board" Background="{DynamicResource IPhoneSteelBackground}"  Visibility="Collapsed">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0"/>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="1" CommandParameter="A" Content="A" FontSize="36"/>
+                <Button Grid.Column="2" CommandParameter="B" Content="B" FontSize="36"/>
+                <Button Grid.Column="3" CommandParameter="C" Content="C" FontSize="36"/>
+                <Button Grid.Column="5" CommandParameter="BACK">
+                    <Path Stretch="Fill" Width="36" Height="24" Data="F1M555.0371,274.4893L552.7871,276.7383L549.9861,273.9373L547.1991,276.7243L545.1131,274.6393L547.9001,271.8523L545.0101,268.9603L547.2601,266.7113L550.1501,269.6023L552.8921,266.8613L554.9761,268.9463L552.2361,271.6883z M555.3751,264.0003L544.8751,264.0003C543.1251,264.1253,535.0001,270.7503,535.0001,272.2503C535.0001,273.7503,543.1251,279.3753,544.8751,279.5003L555.3751,279.5003C558.8751,279.5003,559.3751,277.7093,559.3751,275.5003L559.3751,268.0003C559.3751,265.7913,558.7501,264.0003,555.3751,264.0003" Fill="#FF333333"></Path>
+                </Button>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0"/>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="1" CommandParameter="D" Content="D" FontSize="36"/>
+                <Button Grid.Column="2" CommandParameter="E" Content="E" FontSize="36"/>
+                <Button Grid.Column="3" CommandParameter="F" Content="F" FontSize="36"/>
+                <Button Grid.Column="4" CommandParameter="DEL">
+                    <Image Source="/BO23%20GUI%20idea;component/Images/Trash%20Empty.ico" />
+                </Button>
+            </Grid>
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0"/>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="1" CommandParameter="a" Content="a" FontSize="36"/>
+                <Button Grid.Column="2" CommandParameter="b" Content="b" FontSize="36"/>
+                <Button Grid.Column="3" CommandParameter="c" Content="c" FontSize="36"/>
+            </Grid>
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0"/>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="1" CommandParameter="d" Content="d" FontSize="36"/>
+                <Button Grid.Column="2" CommandParameter="e" Content="e" FontSize="36"/>
+                <Button Grid.Column="3" CommandParameter="f" Content="f" FontSize="36"/>
+            </Grid>
+        </Grid>
+
+        <!--Body P6: G-L -->
+        <Grid Grid.Row="2" VerticalAlignment="Stretch" x:Name="P6Board" Background="{DynamicResource IPhoneSteelBackground}"  Visibility="Collapsed">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0"/>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="1" CommandParameter="G" Content="G" FontSize="36"/>
+                <Button Grid.Column="2" CommandParameter="H" Content="H" FontSize="36"/>
+                <Button Grid.Column="3" CommandParameter="I" Content="I" FontSize="36"/>
+                <Button Grid.Column="5" CommandParameter="BACK">
+                    <Path Stretch="Fill" Width="36" Height="24" Data="F1M555.0371,274.4893L552.7871,276.7383L549.9861,273.9373L547.1991,276.7243L545.1131,274.6393L547.9001,271.8523L545.0101,268.9603L547.2601,266.7113L550.1501,269.6023L552.8921,266.8613L554.9761,268.9463L552.2361,271.6883z M555.3751,264.0003L544.8751,264.0003C543.1251,264.1253,535.0001,270.7503,535.0001,272.2503C535.0001,273.7503,543.1251,279.3753,544.8751,279.5003L555.3751,279.5003C558.8751,279.5003,559.3751,277.7093,559.3751,275.5003L559.3751,268.0003C559.3751,265.7913,558.7501,264.0003,555.3751,264.0003" Fill="#FF333333"></Path>
+                </Button>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0"/>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="1" CommandParameter="J" Content="J" FontSize="36"/>
+                <Button Grid.Column="2" CommandParameter="K" Content="K" FontSize="36"/>
+                <Button Grid.Column="3" CommandParameter="L" Content="L" FontSize="36"/>
+                <Button Grid.Column="4" CommandParameter="DEL">
+                    <Image Source="/BO23%20GUI%20idea;component/Images/Trash%20Empty.ico" />
+                </Button>
+            </Grid>
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0"/>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="1" CommandParameter="g" Content="g" FontSize="36"/>
+                <Button Grid.Column="2" CommandParameter="h" Content="h" FontSize="36"/>
+                <Button Grid.Column="3" CommandParameter="i" Content="i" FontSize="36"/>
+            </Grid>
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0"/>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="1" CommandParameter="j" Content="j" FontSize="36"/>
+                <Button Grid.Column="2" CommandParameter="k" Content="k" FontSize="36"/>
+                <Button Grid.Column="3" CommandParameter="l" Content="l" FontSize="36"/>
+            </Grid>
+        </Grid>
+
+        <!--Body P7: M-L -->
+        <Grid Grid.Row="2" VerticalAlignment="Stretch" x:Name="P7Board" Background="{DynamicResource IPhoneSteelBackground}"  Visibility="Collapsed">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0"/>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="1" CommandParameter="M" Content="M" FontSize="36"/>
+                <Button Grid.Column="2" CommandParameter="N" Content="N" FontSize="36"/>
+                <Button Grid.Column="3" CommandParameter="O" Content="O" FontSize="36"/>
+                <Button Grid.Column="5" CommandParameter="BACK">
+                    <Path Stretch="Fill" Width="36" Height="24" Data="F1M555.0371,274.4893L552.7871,276.7383L549.9861,273.9373L547.1991,276.7243L545.1131,274.6393L547.9001,271.8523L545.0101,268.9603L547.2601,266.7113L550.1501,269.6023L552.8921,266.8613L554.9761,268.9463L552.2361,271.6883z M555.3751,264.0003L544.8751,264.0003C543.1251,264.1253,535.0001,270.7503,535.0001,272.2503C535.0001,273.7503,543.1251,279.3753,544.8751,279.5003L555.3751,279.5003C558.8751,279.5003,559.3751,277.7093,559.3751,275.5003L559.3751,268.0003C559.3751,265.7913,558.7501,264.0003,555.3751,264.0003" Fill="#FF333333"></Path>
+                </Button>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0"/>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="1" CommandParameter="P" Content="P" FontSize="36"/>
+                <Button Grid.Column="2" CommandParameter="Q" Content="Q" FontSize="36"/>
+                <Button Grid.Column="3" CommandParameter="R" Content="R" FontSize="36"/>
+                <Button Grid.Column="4" CommandParameter="DEL">
+                    <Image Source="/BO23%20GUI%20idea;component/Images/Trash%20Empty.ico" />
+                </Button>
+            </Grid>
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0"/>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="1" CommandParameter="m" Content="m" FontSize="36"/>
+                <Button Grid.Column="2" CommandParameter="n" Content="n" FontSize="36"/>
+                <Button Grid.Column="3" CommandParameter="o" Content="o" FontSize="36"/>
+            </Grid>
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0"/>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="1" CommandParameter="p" Content="p" FontSize="36"/>
+                <Button Grid.Column="2" CommandParameter="q" Content="q" FontSize="36"/>
+                <Button Grid.Column="3" CommandParameter="r" Content="r" FontSize="36"/>
+            </Grid>
+        </Grid>
+
+        <!--Body P8: S-X -->
+        <Grid Grid.Row="2" VerticalAlignment="Stretch" x:Name="P8Board" Background="{DynamicResource IPhoneSteelBackground}"  Visibility="Collapsed">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0"/>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="1" CommandParameter="S" Content="S" FontSize="36"/>
+                <Button Grid.Column="2" CommandParameter="T" Content="T" FontSize="36"/>
+                <Button Grid.Column="3" CommandParameter="U" Content="U" FontSize="36"/>
+                <Button Grid.Column="5" CommandParameter="BACK">
+                    <Path Stretch="Fill" Width="36" Height="24" Data="F1M555.0371,274.4893L552.7871,276.7383L549.9861,273.9373L547.1991,276.7243L545.1131,274.6393L547.9001,271.8523L545.0101,268.9603L547.2601,266.7113L550.1501,269.6023L552.8921,266.8613L554.9761,268.9463L552.2361,271.6883z M555.3751,264.0003L544.8751,264.0003C543.1251,264.1253,535.0001,270.7503,535.0001,272.2503C535.0001,273.7503,543.1251,279.3753,544.8751,279.5003L555.3751,279.5003C558.8751,279.5003,559.3751,277.7093,559.3751,275.5003L559.3751,268.0003C559.3751,265.7913,558.7501,264.0003,555.3751,264.0003" Fill="#FF333333"></Path>
+                </Button>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0"/>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="1" CommandParameter="V" Content="V" FontSize="36"/>
+                <Button Grid.Column="2" CommandParameter="W" Content="W" FontSize="36"/>
+                <Button Grid.Column="3" CommandParameter="X" Content="X" FontSize="36"/>
+                <Button Grid.Column="4" CommandParameter="DEL">
+                    <Image Source="/BO23%20GUI%20idea;component/Images/Trash%20Empty.ico" />
+                </Button>
+            </Grid>
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0"/>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="1" CommandParameter="s" Content="s" FontSize="36"/>
+                <Button Grid.Column="2" CommandParameter="t" Content="t" FontSize="36"/>
+                <Button Grid.Column="3" CommandParameter="u" Content="u" FontSize="36"/>
+            </Grid>
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0"/>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="1" CommandParameter="v" Content="v" FontSize="36"/>
+                <Button Grid.Column="2" CommandParameter="w" Content="w" FontSize="36"/>
+                <Button Grid.Column="3" CommandParameter="x" Content="x" FontSize="36"/>
+            </Grid>
+        </Grid>
+
+        <!--Body P9: YZ -->
+        <Grid Grid.Row="2" VerticalAlignment="Stretch" x:Name="P9Board" Background="{DynamicResource IPhoneSteelBackground}"  Visibility="Collapsed">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0"/>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="1" CommandParameter="Y" Content="Y" FontSize="36"/>
+                <Button Grid.Column="2" CommandParameter="Z" Content="Z" FontSize="36"/>
+                <Button Grid.Column="5" CommandParameter="BACK">
+                    <Path Stretch="Fill" Width="36" Height="24" Data="F1M555.0371,274.4893L552.7871,276.7383L549.9861,273.9373L547.1991,276.7243L545.1131,274.6393L547.9001,271.8523L545.0101,268.9603L547.2601,266.7113L550.1501,269.6023L552.8921,266.8613L554.9761,268.9463L552.2361,271.6883z M555.3751,264.0003L544.8751,264.0003C543.1251,264.1253,535.0001,270.7503,535.0001,272.2503C535.0001,273.7503,543.1251,279.3753,544.8751,279.5003L555.3751,279.5003C558.8751,279.5003,559.3751,277.7093,559.3751,275.5003L559.3751,268.0003C559.3751,265.7913,558.7501,264.0003,555.3751,264.0003" Fill="#FF333333"></Path>
+                </Button>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0"/>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="1" CommandParameter="y" Content="y" FontSize="36"/>
+                <Button Grid.Column="2" CommandParameter="z" Content="z" FontSize="36"/>
+                <Button Grid.Column="4" CommandParameter="DEL">
+                    <Image Source="/BO23%20GUI%20idea;component/Images/Trash%20Empty.ico" />
+                </Button>
+            </Grid>            
+        </Grid>
+        
+    </Grid>
+    
+</UserControl>

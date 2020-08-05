@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="0e6fb796-dfa2-405c-b41b-0991faec88ee" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://smartmtinterface.cpf.co.th/BKM00720Service.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="BKM00720Service4.xsd" MetadataType="Schema" ID="c15a2b0a-c604-437b-a36d-da992ac7ec7e" SourceId="1" SourceUrl="http://smartmtinterface.cpf.co.th/BKM00720Service.svc?xsd=xsd0" />
+    <MetadataFile FileName="BKM00720Service41.xsd" MetadataType="Schema" ID="6bacb078-fe55-4df3-bba4-7dee5e06f4e4" SourceId="1" SourceUrl="http://smartmtinterface.cpf.co.th/BKM00720Service.svc?xsd=xsd1" />
+    <MetadataFile FileName="BKM00720Service1.disco" MetadataType="Disco" ID="15dd42e4-a388-4fb9-840a-33b1ca856983" SourceId="1" SourceUrl="http://smartmtinterface.cpf.co.th/BKM00720Service.svc?disco" />
+    <MetadataFile FileName="BKM00720Service1.wsdl" MetadataType="Wsdl" ID="42771e7b-1a1f-458d-bc5e-30de4515d3e9" SourceId="1" SourceUrl="http://smartmtinterface.cpf.co.th/BKM00720Service.svc?wsdl" />
+    <MetadataFile FileName="BKM00720Service42.xsd" MetadataType="Schema" ID="d371f4ba-cf00-43ea-bfb9-4c50cc5b0600" SourceId="1" SourceUrl="http://smartmtinterface.cpf.co.th/BKM00720Service.svc?xsd=xsd2" />
+    <MetadataFile FileName="BKM00720Service43.xsd" MetadataType="Schema" ID="b64517b3-0302-4ef4-8f7b-3f13d03a443c" SourceId="1" SourceUrl="http://smartmtinterface.cpf.co.th/BKM00720Service.svc?xsd=xsd3" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
