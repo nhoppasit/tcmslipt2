@@ -19,7 +19,7 @@
     <!--Main display-->
     <Viewbox>
         <Canvas Width="{StaticResource Scr_W}" Height="{StaticResource Scr_H}" 
-                Background="Black">
+                Background="Yellow">
            
             <!--Header Icons-->
             <bhm:HeaderIcons MouseDown="HeaderIcons_MouseDown" MouseUp="HeaderIcons_MouseUp" />
@@ -32,12 +32,12 @@
                 </Grid.RowDefinitions>
                 <!--Error-->
                 <TextBlock Style="{StaticResource TellUserTextStyle}" 
-                           Grid.Row="0"
+                           Grid.Row="0" Foreground="Black"
                            Text="ระบบขัดข้อง" FontSize="90">                        
                 </TextBlock>
                 <TextBlock Style="{StaticResource TellUserTextStyle}" 
-                           Grid.Row="1"
-                           Text="ปิดระบบชั่วคราว" FontSize="90">
+                           Grid.Row="1" Foreground="Black"
+                           Text="ระบบปิดใช้งานชั่วคราว" FontSize="90">
                 </TextBlock>
             </Grid>
             
