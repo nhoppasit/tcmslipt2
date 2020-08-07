@@ -144,14 +144,14 @@ namespace DIO_Library
                 message = "อ่านพอร์ต DIO7432 ผิดพลาด";
                 logText = "Read PIN [" + port.ToString() + "." + pin.ToString() + " = " + state.ToString() + "]: " + message;
                 log.AppendText(logText);
-                System.Diagnostics.Debug.WriteLine(logText);
+                //System.Diagnostics.Debug.WriteLine(logText);
             }
             else
             {
                 message = "";
                 logText = "Read PIN [" + port.ToString() + "." + pin.ToString() + " = " + state.ToString() + "]: OK";
                 log.AppendText(logText);
-                System.Diagnostics.Debug.WriteLine(logText);
+                //System.Diagnostics.Debug.WriteLine(logText);
             }
         }
 
